@@ -246,7 +246,7 @@ data:
     repetition_max_count: 32
   paths:
     # ProofPile 2: Algebraic Stack Data
-    # - http://olmo-data.org/preprocessed/proof-pile-2/v0_decontaminated/algebraic-stack/train/allenai/dolma2-tokenizer/part-00-00000.npy
+    - http://olmo-data.org/preprocessed/proof-pile-2/v0_decontaminated/algebraic-stack/train/allenai/dolma2-tokenizer/part-00-00000.npy
     # - http://olmo-data.org/preprocessed/proof-pile-2/v0_decontaminated/algebraic-stack/train/allenai/dolma2-tokenizer/part-01-00000.npy
     # - http://olmo-data.org/preprocessed/proof-pile-2/v0_decontaminated/algebraic-stack/train/allenai/dolma2-tokenizer/part-02-00000.npy
     # - http://olmo-data.org/preprocessed/proof-pile-2/v0_decontaminated/algebraic-stack/train/allenai/dolma2-tokenizer/part-03-00000.npy
