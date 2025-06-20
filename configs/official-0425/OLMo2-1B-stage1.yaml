@@ -45,7 +45,7 @@ softmax_auxiliary_loss: true
 auxiliary_loss_multiplier: 1e-5
 fused_loss: true
 
-compile: null
+compile: fullgraph
 
 optimizer:
   name: adamw
