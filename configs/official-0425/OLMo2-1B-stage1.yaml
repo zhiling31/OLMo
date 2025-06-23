@@ -245,26 +245,26 @@ data:
     repetition_min_period: 1
     repetition_max_count: 32
   paths:
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/Arxiv/part-00-00000.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/Pes2o/part-06-00000.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/OpenWebMath/part-02-00000.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/OpenWebMath/part-03-00000.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/starcoder/part-001-00000.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/starcoder/part-002-00000.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/starcoder/part-003-00000.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/starcoder/part-004-00000.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/starcoder/part-005-00000.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/starcoder/part-007-00000.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/Wikipedia/part-0-00000.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/Wikipedia/part-1-00000.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-000-00000.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-000-00001.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-000-00002.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-000-00003.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-000-00004.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-001-00000.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-001-00001.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-001-00002.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-001-00003.npy
-    - /mnt/hangtian/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-001-00004.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/Arxiv/part-00-00000.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/Pes2o/part-06-00000.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/OpenWebMath/part-02-00000.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/OpenWebMath/part-03-00000.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/starcoder/part-001-00000.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/starcoder/part-002-00000.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/starcoder/part-003-00000.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/starcoder/part-004-00000.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/starcoder/part-005-00000.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/starcoder/part-007-00000.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/Wikipedia/part-0-00000.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/Wikipedia/part-1-00000.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-000-00000.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-000-00001.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-000-00002.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-000-00003.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-000-00004.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-001-00000.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-001-00001.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-001-00002.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-001-00003.npy
+    - /mnt/zhongziban8-dclm/zzl/datasets-stage1/DCLM/part-001-00004.npy
 
