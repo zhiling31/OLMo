@@ -62,7 +62,7 @@ optimizer:
 scheduler:
   name: cosine_with_warmup
   units: tokens
-  t_warmup: 10,066,329
+  t_warmup: 10066329
   t_max: 6e9
   alpha_f: 0.1
   warmup_min_lr: 0.0
