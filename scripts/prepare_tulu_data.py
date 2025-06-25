@@ -24,7 +24,7 @@ def main(opts) -> None:
     else:
         tokenizer = Tokenizer.from_pretrained(opts.tokenizer, eos_token_id=opts.eos, pad_token_id=opts.pad)
 
-    dataset = ds.load_dataset("allenai/tulu-v2-sft-mixture", split="train")
+    dataset = ds.load_dataset("allenai/tulu-3-sft-personas-code", split="train")
 
     log.info("Tokenizing dataset...")
     dataset = dataset.map(
@@ -51,7 +51,7 @@ def main(opts) -> None:
     output_dir.mkdir(exist_ok=True, parents=True)
 
     input_ids_file = np.memmap(
-        str(output_dir / "input_ids.npy"), dtype=np.uint16, mode="w+", shape=(total_tokens,)
+        str(output_dir / "input_ids.npy"), dtype=np.uint32, mode="w+", shape=(total_tokens,)
     )
     label_mask_file = np.memmap(
         str(output_dir / "label_mask.npy"), dtype=np.bool_, mode="w+", shape=(total_tokens,)
@@ -116,11 +116,11 @@ def get_parser() -> ArgumentParser:
         "--tokenizer",
         type=str,
         help="""Tokenizer path or identifier.""",
-        default=Path(__file__).parent / "tokenizers" / "allenai_eleuther-ai-gpt-neox-20b-pii-special.json",
+        default=Path(__file__).parent / "tokenizers" / "allenai_dolma2.json",
     )
     parser.add_argument("-s", "--seq-len", type=int, help="""Max sequence length.""", default=2048)
-    parser.add_argument("--eos", type=int, help="""EOS token ID.""", default=50279)
-    parser.add_argument("--pad", type=int, help="""PAD token ID.""", default=1)
+    parser.add_argument("--eos", type=int, help="""EOS token ID.""", default=100257)
+    parser.add_argument("--pad", type=int, help="""PAD token ID.""", default=100277)
     parser.add_argument("-j", "--num-proc", type=int, help="""Number of workers.""", default=8)
     return parser
 
