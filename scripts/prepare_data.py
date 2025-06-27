@@ -13,7 +13,21 @@ from rich.progress import track
 
 from olmo.tokenizer import Tokenizer
 from olmo.util import prepare_cli_environment
-import os
+import pandas as pd
+
+def extract_triple_quoted(text):
+    start_marker = r"```python\n"
+    start_idx = text.find(start_marker)
+    if start_idx == -1:
+        return ""  # 未找到起始标记
+    start_idx += 9  # 跳过起始三引号
+    end_marker = "```"
+    end_idx = text.find(end_marker, start_idx)  # 从start_idx开始查找结束标记
+    return text[start_idx:end_idx] if end_idx != -1 else ""
+
+
+
+
 log = logging.getLogger(__name__)
 
 
@@ -23,7 +37,7 @@ def main(opts) -> None:
         tokenizer = Tokenizer.from_file(opts.tokenizer, eos_token_id=opts.eos, pad_token_id=opts.pad)
     else:
         tokenizer = Tokenizer.from_pretrained(opts.tokenizer, eos_token_id=opts.eos, pad_token_id=opts.pad)
-    dataset = ds.load_dataset("allenai/tulu-3-sft-personas-code", split="train")
+    dataset = ds.load_dataset("bunyaminergen/Stable-Code-Python-SFT", split="train")
     print("dataset",dataset,type(dataset),dataset.column_names)
     log.info("Tokenizing dataset...")
     dataset = dataset.map(
@@ -33,11 +47,22 @@ def main(opts) -> None:
         num_proc=opts.num_proc,  # type: ignore
     )
 
+
+    subset = dataset.select(range(10))  # 仅加载前10条数据[1,7](@ref)
+
+    # 打印所有字段的前10行
+    for i in range(10):
+        print(f"Row {i+1}:")
+        print(f"  messages: {subset[i]['messages']}")
+        print(f"  input_ids: {subset[i]['input_ids'][:10]}...")  # 仅展示部分 token
+        print(f"  label_mask: {subset[i]['label_mask']}")
+        print(f"  n_labels: {subset[i]['n_labels']}\n")
+
     log.info("Filtering dataset...")
     n = len(dataset)  # type: ignore
     dataset = dataset.filter(filter, batched=False, num_proc=opts.num_proc)  # type: ignore
     log.info(f"Filtered out {n - len(dataset):,d} examples")
-
+    print(222,dataset)
     log.info("Counting tokens...")
     total_tokens = 0
     for ex in track(dataset):
@@ -73,6 +98,8 @@ def filter(example):
 def preprocess(example, tokenizer: Tokenizer, max_seq_len: int):
     input_ids = [tokenizer.eos_token_id]
     label_mask = [False]
+    print(1111111111,example)
+    example["messages"] = [{'content':example["instruction"], 'role': 'user'}, {'content':extract_triple_quoted(example["output"]), 'role': 'assistant'}]
     for msg in example["messages"]:
         role_tokens = tokenizer.encode(f"<|{msg['role']}|>\n", add_special_tokens=False)
         label_mask += [False] * len(role_tokens)
@@ -115,7 +142,7 @@ def get_parser() -> ArgumentParser:
         help="""Tokenizer path or identifier.""",
         default="d:/OLMo/olmo_data/tokenizers/allenai_dolma2.json",
     )
-    parser.add_argument("-s", "--seq-len", type=int, help="""Max sequence length.""", default=2048)
+    parser.add_argument("-s", "--seq-len", type=int, help="""Max sequence length.""", default=4096)
     parser.add_argument("--eos", type=int, help="""EOS token ID.""", default=100257)
     parser.add_argument("--pad", type=int, help="""PAD token ID.""", default=100277)
     parser.add_argument("-j", "--num-proc", type=int, help="""Number of workers.""", default=8)
