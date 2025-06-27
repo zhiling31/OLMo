@@ -16,7 +16,7 @@ from olmo.util import prepare_cli_environment
 import pandas as pd
 
 def extract_triple_quoted(text):
-    start_marker = r"```python\n"
+    start_marker = r"```python"
     start_idx = text.find(start_marker)
     if start_idx == -1:
         return ""  # 未找到起始标记
